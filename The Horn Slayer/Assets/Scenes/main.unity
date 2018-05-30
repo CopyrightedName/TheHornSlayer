@@ -344,6 +344,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &346296586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 346296587}
+  m_Layer: 0
+  m_Name: Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346296587
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346296586}
+  m_LocalRotation: {x: 0.1455781, y: -0.69195884, z: -0.14557813, w: 0.69195884}
+  m_LocalPosition: {x: -6.0519204, y: 0.16575179, z: 0.07297344}
+  m_LocalScale: {x: 15.092069, y: 15.092069, z: 15.09207}
+  m_Children: []
+  m_Father: {fileID: 389193382}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &389193382 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 6fbc68688e0e5bb49b6c018b474eaccf, type: 3}
@@ -734,6 +762,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hornAnim: {fileID: 309240828}
   hornSound: {fileID: 309240827}
+  bullet: {fileID: 1074710222477500, guid: 234402e56eca8654ba3ddefe3e3324d6, type: 2}
+  pos: {fileID: 346296587}
+  maxTime: 100
+  bulletForce: 5000
 --- !u!1 &967245794
 GameObject:
   m_ObjectHideFlags: 0
