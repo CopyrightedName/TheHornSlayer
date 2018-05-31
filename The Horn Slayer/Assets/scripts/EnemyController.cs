@@ -9,22 +9,43 @@ public class EnemyController : MonoBehaviour {
     public Animator anim;
 
     bool canFollow;
+    bool isDead;
 
-	void Start () {
+    public float maxTime;
+    [SerializeField]
+    float time;
+
+    void Start () {
         canFollow = true;
+        isDead = false;
         agent = GetComponent<NavMeshAgent>();
+        time = maxTime;
     }
 	
 	void Update () {
-        if (canFollow)
+
+        if (isDead)
         {
-            agent.SetDestination(FindObjectOfType<CharacterController>().transform.position);
-            anim.SetBool("walking", true);
+            time--;
         }
-        else
+
+        if(time <= 0)
         {
-            agent.ResetPath();
-            anim.SetBool("walking", false);
+            Destroy(gameObject);
+        }
+
+        if (!isDead)
+        {
+            if (canFollow)
+            {
+                agent.SetDestination(FindObjectOfType<CharacterController>().transform.position);
+                anim.SetBool("walking", true);
+            }
+            else
+            {
+                agent.ResetPath();
+                anim.SetBool("walking", false);
+            }
         }
 	}
 
@@ -37,6 +58,8 @@ public class EnemyController : MonoBehaviour {
             agent.enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
+            isDead = true;
         }
     }
 }
